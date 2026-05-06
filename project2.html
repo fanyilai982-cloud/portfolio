@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智能车主板 · 范祎来</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">范祎来<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="project1.html">无刷电机驱动板</a></li>
+      <li><a href="project2.html" class="active">智能车主板</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <a href="index.html" class="back-link">← 返回首页</a>
+
+    <div class="detail-header">
+      <h2>智能车主板 · 四层 PCB 设计与调试</h2>
+      <div class="date">2025.03 - 2025.05 · 独立工程落地</div>
+    </div>
+
+    <div class="detail-content">
+      <!-- Left: 3D Image -->
+      <div class="detail-image">
+        <img src="assets/project2/front.png" alt="智能车主板正面" id="main-image">
+        <div class="image-toggle">
+          <button class="active" data-src="assets/project2/front.png">正面</button>
+          <button data-src="assets/project2/back.png">背面</button>
+        </div>
+      </div>
+
+      <!-- Right: Info Cards -->
+      <div class="detail-info">
+        <div class="info-card" onclick="openModal('pdf', {title: '智能车主板 · 电路原理图', src: 'assets/project2/schematic.pdf'})">
+          <div class="icon blue">&#x1f4c4;</div>
+          <div class="text">
+            <h4>电路原理图</h4>
+            <p>含 HCPL0631 光耦隔离、TPS73633 降压模块</p>
+          </div>
+        </div>
+
+        <div class="project-desc">
+          <h4>项目概述</h4>
+          <p>基于行业开源的智能车主控板原理图架构，独立完成从图纸解析、四层 PCB Layout、PCB 焊接到底层硬件验证的完整工程落地，旨在验证电源管理及隔离驱动电路的可靠性。</p>
+          <br>
+          <h4>技术要点</h4>
+          <p>· 深入解析 HCPL0631 光耦隔离、TPS73633 降压等模块的参考设计<br>
+          · 使用 Altium Designer 20 独立完成四层板的布局布线<br>
+          · 合理规划信号回流路径与电源/地层分割<br>
+          · 独立完成全板高密度贴片及直插元器件的焊接<br>
+          · 通过 STM32F103 输出 PWM 信号验证隔离驱动可靠性</p>
+          <br>
+          <h4>项目成果</h4>
+          <p>成功将开源原理图转化为稳定运行的物理主板，点亮并跑通全部底层硬件测试，展现了扎实的原理图理解力、PCB 规范制图能力以及独立解决硬件故障的排错逻辑。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3></h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    范祎来 · 硬件开发工程师（实习）
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
