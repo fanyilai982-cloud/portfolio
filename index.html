@@ -30,6 +30,12 @@
           <span>15840502148</span>
           <span>fanyilai982@163.com</span>
         </div>
+        <div class="meta">
+          <span>男</span>
+          <span>2002.07.15</span>
+          <span>籍贯 辽宁朝阳</span>
+          <span>现居 安徽合肥</span>
+        </div>
       </div>
     </section>
 
@@ -42,9 +48,20 @@
           <div class="timeline-content">
             <div class="timeline-header">
               <h3>安徽大学（211）</h3>
-              <span class="timeline-date">2024.07 - 至今</span>
+              <span class="timeline-date">2024.09 - 2027.06</span>
             </div>
-            <div class="timeline-sub">电子科学与技术 · 硕士</div>
+            <div class="timeline-sub">电子科学与技术 · 硕士研究生</div>
+            <div class="edu-detail">
+              <div class="edu-field">
+                <span class="edu-label">院系</span>
+                <span class="edu-val">电子信息工程学院</span>
+              </div>
+              <div class="edu-field">
+                <span class="edu-label">排名</span>
+                <span class="edu-val edu-highlight">TOP 20%</span>
+              </div>
+            </div>
+            <button class="edu-action" onclick="openModal('pdf', {title: '研究生成绩单', src: 'assets/edu/研究生成绩单.pdf'})">查看成绩单 →</button>
           </div>
         </div>
         <div class="timeline-item">
@@ -55,6 +72,21 @@
               <span class="timeline-date">2020.09 - 2024.07</span>
             </div>
             <div class="timeline-sub">电子信息工程 · 本科</div>
+            <div class="edu-detail">
+              <div class="edu-field">
+                <span class="edu-label">院系</span>
+                <span class="edu-val">电子信息工程学院</span>
+              </div>
+              <div class="edu-field">
+                <span class="edu-label">排名</span>
+                <span class="edu-val edu-highlight">TOP 20%</span>
+              </div>
+              <div class="edu-field">
+                <span class="edu-label">职务</span>
+                <span class="edu-val">校网络思政中心后期剪辑部部长</span>
+              </div>
+            </div>
+            <button class="edu-action" onclick="openModal('pdf', {title: '本科成绩单', src: 'assets/edu/本科生成绩单.pdf'})">查看成绩单 →</button>
           </div>
         </div>
       </div>
@@ -142,24 +174,68 @@
     <section class="section anim-6">
       <h2 class="section-title">荣誉证书</h2>
       <div class="honors-list">
-        <div class="honor-item">
+        <div class="honor-item honor-clickable" onclick="openModal('pdf', {title: '大学英语六级证书（CET-6）', src: 'assets/cet6/六级证书.pdf'})">
           <div class="honor-icon">&#x1f393;</div>
-          <div>
+          <div class="honor-body">
             <h4>英语六级</h4>
             <p>听说读写能力良好，能用英语进行日常交流，能快速浏览英文芯片手册等</p>
           </div>
+          <div class="honor-arrow">→</div>
         </div>
-        <div class="honor-item">
+        <div class="honor-item honor-clickable" onclick="openModal('image', {title: '工业和信息化人才专业知识测评证书', src: 'assets/certs/工业和信息化人才专业知识测评证书.jpg', desc: '获得工信部人才交流中心颁发的 Office 办公软件专业知识测评证书。能够熟练运用相关软件高效完成硬件研发流程中的技术文档撰写、测试数据梳理与可视化（如图表分析）、BOM 表整理以及高质量的项目答辩汇报（PPT）制作。'})">
+          <div class="honor-icon">&#x1f4ca;</div>
+          <div class="honor-body">
+            <h4>工信部 Office 专业知识测评证书</h4>
+            <p>2022.03 · 工业和信息化人才交流中心</p>
+          </div>
+          <div class="honor-arrow">→</div>
+        </div>
+        <div class="honor-item honor-clickable" onclick="openCompModal()">
           <div class="honor-icon">&#x1f3c6;</div>
-          <div>
+          <div class="honor-body">
             <h4>辽宁省大学生电子设计竞赛 · 三等奖</h4>
+            <p>2022.12 · 有源二分频音频放大电路设计</p>
           </div>
+          <div class="honor-arrow">→</div>
         </div>
-        <div class="honor-item">
+        <div class="honor-item honor-clickable" onclick="openModal('image', {title: '校大学生电子设计竞赛 · 二等奖', src: 'assets/certs/校电赛二等奖.jpg', desc: '2022 年 TI 杯辽宁省大学生电子设计竞赛校内选拔赛二等奖，该赛事同时作为省赛选拔通道。'})">
           <div class="honor-icon">&#x1f3c6;</div>
-          <div>
+          <div class="honor-body">
             <h4>校大学生电子设计竞赛 · 二等奖</h4>
+            <p>2022 · TI 杯省赛选拔赛</p>
           </div>
+          <div class="honor-arrow">→</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Self Assessment -->
+    <section class="section anim-7">
+      <h2 class="section-title">性格特征及自我评价</h2>
+      <div class="self-cards">
+        <div class="self-card self-card--eng">
+          <div class="self-card-head">
+            <div class="self-card-icon green">&#x1f527;</div>
+            <h4>专业素养</h4>
+          </div>
+          <p>具备扎实的电子科学与技术专业功底，专注于将理论分析与实际工程落地高效结合。在过往的科研与实践中，培养了极强的数据分析与系统排错能力。性格严谨务实，对待硬件参数与底层逻辑有极高要求，能够从源头把控项目质量。同时具备出色的系统性规划能力与敏锐的成本意识，能够高效拆解并攻克复杂的技术挑战，在保证性能的前提下实现资源的最优配置。</p>
+          <div class="self-card-tag">期待在硬件工程领域持续深耕，为团队带来务实高效的产出。</div>
+        </div>
+
+        <div class="self-card self-card--ai">
+          <div class="self-card-head">
+            <div class="self-card-icon orange">&#x1f916;</div>
+            <h4>AI 与技术能力</h4>
+          </div>
+          <p>熟练使用并可本地部署市场主流 AI 大模型，善于运用 AI 技术解决复杂工程问题、大幅提升研发与排障效率。熟练掌握 LangChain 等开发框架，具备独立搭建 AI 智能体（Agent）的实战能力，拥有 OpenClaw 等开源应用部署经验，能务实地将前沿 AI 能力转化为具体的工程生产力。</p>
+        </div>
+
+        <div class="self-card self-card--creative">
+          <div class="self-card-head">
+            <div class="self-card-icon purple">&#x1f3ac;</div>
+            <h4>个人特长</h4>
+          </div>
+          <p>在专业领域之外，最大的特长和爱好是视频剪辑。剪辑不单是一项视觉处理技术，更像是一项将海量、碎片化的原始素材进行"结构化重组"的系统工程。因为对这项特长的持续钻研，曾担任学校网络思政中心后期剪辑部部长。任期内，不仅负责底层素材的剪辑与品控，更主导统筹了校级毕业典礼等重磅视听项目的全流程后期配合。这段经历极大锻炼了在高压节点下的全局规划能力、跨部门沟通技巧以及团队协作精神。</p>
         </div>
       </div>
     </section>
@@ -170,6 +246,97 @@
     范祎来 · 硬件开发工程师（实习）
   </footer>
 
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3></h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
+  <script>
+    const compContent = `
+      <div class="competition-detail">
+        <div class="comp-cert">
+          <img src="assets/certs/省电赛三等奖.PNG" alt="辽宁省大学生电子设计竞赛三等奖证书">
+        </div>
+        <div class="comp-header">
+          <h4>项目概述</h4>
+          <p>本竞赛为 2022 年辽宁省大学生电子设计竞赛 T1 题目——"有源二分频音频放大电路"设计。系统需将输入音频信号进行放大、分频并驱动不同阻抗负载，实现完整的音频功率放大链路。团队独立完成了从方案论证、电路设计到整机调试的全流程，最终输出功率达标、分频特性良好，圆满达成各项设计指标。</p>
+        </div>
+
+        <h4 style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:14px;">四级硬件系统架构</h4>
+        <div class="comp-stages">
+          <div class="comp-stage">
+            <div class="stage-num s1">1</div>
+            <div class="stage-body">
+              <h5>AGC 自动增益控制电路</h5>
+              <p>首级采用 AGC（自动增益控制）电路，根据输入信号幅度动态调节增益，确保后级电路在不同输入电平均能稳定工作，避免强信号削波失真。</p>
+            </div>
+          </div>
+
+          <div class="comp-stage">
+            <div class="stage-num s2">2</div>
+            <div class="stage-body">
+              <h5>仪表放大器 · 信号放大</h5>
+              <p>第二级利用仪表放大器的高输入阻抗特性，有效隔离前级信号源，提供约 52dB 的最大增益，将微弱音频信号放大至适合后续处理的电平。</p>
+              <div class="comp-specs">
+                <span class="spec-tag">高输入阻抗</span>
+                <span class="spec-tag">最大增益 52dB</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-stage">
+            <div class="stage-num s3">3</div>
+            <div class="stage-body">
+              <h5>巴特沃斯有源滤波器 · 二分频</h5>
+              <p>第三级基于巴特沃斯拓扑，分别设计了截止频率约 2kHz 的高通滤波器与低通滤波器。巴特沃斯响应在通带内具有最大平坦特性，实现了精准的信号分频与平滑的频率过渡。</p>
+              <div class="comp-specs">
+                <span class="spec-tag">截止频率 2kHz</span>
+                <span class="spec-tag">高通 + 低通</span>
+                <span class="spec-tag">巴特沃斯拓扑</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-stage">
+            <div class="stage-num s4">4</div>
+            <div class="stage-body">
+              <h5>甲乙类推挽功率放大器</h5>
+              <p>末级采用甲乙类推挽功放结构，兼顾效率与失真指标，分别驱动 8Ω 与 4Ω 负载，输出约 4.4W 与 7.9W 的功率，满足赛题对不同负载阻抗下的功率要求。</p>
+              <div class="comp-specs">
+                <span class="spec-tag">8Ω / 4.4W</span>
+                <span class="spec-tag">4Ω / 7.9W</span>
+                <span class="spec-tag">甲乙类推挽</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-result">
+          <p>团队荣获 2022 年 T1 杯辽宁省大学生电子设计竞赛三等奖（省级），展现了从系统方案设计到硬件实现与调试的完整工程能力。</p>
+        </div>
+
+        <div class="comp-pub" onclick="openModal('pdf', {title: '论文：音频分频网络电路实现', src: 'assets/certs/音频分频网络论文.pdf'})">
+          <div class="comp-pub-icon">&#x1f4c4;</div>
+          <div class="comp-pub-info">
+            <h5>发表论文</h5>
+            <p>音频分频网络电路实现——以有源分频功率放大电路为例</p>
+            <span>电声技术，2022，46(11)：107-110</span>
+          </div>
+          <div class="comp-pub-arrow">→</div>
+        </div>
+      </div>
+    `;
+
+    function openCompModal() {
+      openModal('report', {title: '有源二分频音频放大电路 · 2022 辽宁省电赛三等奖', content: compContent});
+    }
+  </script>
 </body>
 </html>

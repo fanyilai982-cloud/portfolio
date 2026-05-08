@@ -26,6 +26,8 @@ function openModal(type, data) {
     body.innerHTML = `<iframe src="${data.src}" title="${data.title}"></iframe>`;
   } else if (type === 'video') {
     body.innerHTML = `<video controls autoplay><source src="${data.src}" type="video/mp4">浏览器不支持视频播放</video>`;
+  } else if (type === 'image') {
+    body.innerHTML = `<div class="modal-image-wrap"><img src="${data.src}" alt="${data.title}">${data.desc ? `<div class="modal-image-desc">${data.desc}</div>` : ''}</div>`;
   } else if (type === 'report') {
     body.innerHTML = `<div class="report-content">${data.content}</div>`;
   }
