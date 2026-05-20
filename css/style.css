@@ -1286,6 +1286,63 @@ body {
   transform: translateX(2px);
 }
 
+/* === Waveform Gallery === */
+.waveform-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.waveform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.waveform-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.waveform-item img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.waveform-item img:hover {
+  box-shadow: var(--shadow-md);
+  transform: scale(1.02);
+}
+
+.waveform-item span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.waveform-video {
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+
+.waveform-video h5 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+}
+
+.waveform-video video {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
 /* === Footer === */
 .footer {
   text-align: center;

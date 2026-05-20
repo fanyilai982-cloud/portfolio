@@ -61,6 +61,14 @@
           </div>
         </div>
 
+        <div class="info-card" onclick="loadWaveforms()">
+          <div class="icon purple">&#x1f4ca;</div>
+          <div class="text">
+            <h4>调试波形</h4>
+            <p>PWM 斩波、反电动势、换相沿示波器实测</p>
+          </div>
+        </div>
+
         <div class="project-desc">
           <h4>项目概述</h4>
           <p>基于行业经典参考设计，独立承担从双层 PCB Layout、打样、SMT 贴片到完整硬件验证的全流程，目标实现 24V 供电的 BLDC 有感/无感方波控制。</p>
@@ -122,6 +130,33 @@
 
     function loadReport() {
       openModal('report', {title: '无刷电机驱动板 · 测试报告', content: reportContent});
+    }
+
+    const waveformContent = `
+      <div class="waveform-gallery">
+        <div class="waveform-grid">
+          <div class="waveform-item">
+            <img src="assets/project1/PWM波_正常斩波状态.jpg" alt="PWM 正常斩波状态">
+            <span>PWM 正常斩波状态</span>
+          </div>
+          <div class="waveform-item">
+            <img src="assets/project1/PWM波_反电动势状态.jpg" alt="PWM 反电动势状态">
+            <span>反电动势波形</span>
+          </div>
+          <div class="waveform-item">
+            <img src="assets/project1/PWM波_宏观的换相沿.jpg" alt="PWM 宏观换相沿">
+            <span>宏观换相沿</span>
+          </div>
+        </div>
+        <div class="waveform-video">
+          <h5>PWM 随调速旋钮变化 · 占空比调节演示</h5>
+          <video controls><source src="assets/project1/PWM波随调速旋钮变化占空比改变.mp4" type="video/mp4"></video>
+        </div>
+      </div>
+    `;
+
+    function loadWaveforms() {
+      openModal('report', {title: '无刷电机驱动板 · 调试波形', content: waveformContent});
     }
   </script>
 </body>
