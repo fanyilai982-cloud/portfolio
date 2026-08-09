@@ -13,7 +13,8 @@
     <ul class="nav-links">
       <li><a href="index.html">首页</a></li>
       <li><a href="project1.html" class="active">无刷电机驱动板</a></li>
-      <li><a href="project2.html">智能车主板</a></li>
+      <li><a href="project2.html">24V无刷电机驱动板v2.0 · FOC 驱动板</a></li>
+      <li><a href="project3.html">智能车主板</a></li>
     </ul>
   </nav>
 
@@ -21,17 +22,17 @@
     <a href="index.html" class="back-link">← 返回首页</a>
 
     <div class="detail-header">
-      <h2>无刷电机驱动板 · STM32G030C8T6</h2>
-      <div class="date">2026.03 - 至今 · 独立工程落地</div>
+      <h2>45V-24V有感/无感方波无刷电机驱动板</h2>
+      <div class="date">2026.03 - 2026.05 · 独立工程落地</div>
     </div>
 
     <div class="detail-content">
       <!-- Left: 3D Image -->
       <div class="detail-image">
-        <img src="assets/project1/front.png" alt="无刷电机驱动板正面" id="main-image">
+        <img src="assets/project1/front.jpg" alt="无刷电机驱动板正面" id="main-image">
         <div class="image-toggle">
-          <button class="active" data-src="assets/project1/front.png">正面</button>
-          <button data-src="assets/project1/back.png">背面</button>
+          <button class="active" data-src="assets/project1/front.jpg">正面</button>
+          <button data-src="assets/project1/back.jpg">背面</button>
         </div>
       </div>
 
@@ -45,7 +46,7 @@
           </div>
         </div>
 
-        <div class="info-card" onclick="openModal('video', {title: '无刷电机驱动板 · 演示视频', src: 'assets/project1/demo.mp4'})">
+        <div class="info-card" onclick="openModal('video', {title: '无刷电机驱动板 · 演示视频', src: '../h264_videos/demo_h264.mp4'})">
           <div class="icon yellow">&#x1f3ac;</div>
           <div class="text">
             <h4>演示视频</h4>
@@ -71,19 +72,22 @@
 
         <div class="project-desc">
           <h4>项目概述</h4>
-          <p>基于行业经典参考设计，独立承担从双层 PCB Layout、打样、SMT 贴片到完整硬件验证的全流程，目标实现 24V 供电的 BLDC 有感/无感方波控制。</p>
+          <p>独立完成一款最大电流 2A、最大功率 90W 的无刷直流电机驱动板开发，系统支持宽压输入，有感模式最高 45V，无感模式最高 36V。独立完成从核心元器件选型、双层 PCB Layout 设计、手工焊接打样到软硬件联调的全流程闭环，最终成功实现电机的有感/无感方波控制。</p>
           <br>
-          <h4>技术要点</h4>
-          <p>· STM32G030C8T6 主控，XL1509 + 线性稳压多级降压电源树<br>
-          · EG2132 栅极驱动 + 自举电路，JMTK3005A 三相逆变全桥<br>
-          · GS321A 单电阻电流采样及 Hall 接口<br>
-          · 空载电流 30mA，12V/5V/3.3V 输出精确</p>
+          <h4>技术栈与使用工具</h4>
+          <p>Altium Designer、Keil MDK、STM32CubeMX、数字示波器、万用表及稳压电源；PCB Layout、Buck 降压设计、C 语言与 HAL 库。</p>
           <br>
-          <h4>调试成果</h4>
-          <p>· 电源树完整性验证通过，MOS 管体二极管压降正常（正向 700-800mV）<br>
-          · Hall 信号异常排查：确认电机线序为 CAB 而非 ABC，调整后电机平稳运转<br>
-          · 运行电流 0.12-0.18A，最大转速电流约 0.67A，可通过电位器调速<br>
-          · 发现 24V 转 12V 芯片温度偏高，定位为铺铜不足，已记录优化方案</p>
+          <h4>系统方案</h4>
+          <p>· 基于 STM32G030C8T6 主控构建电机控制核心<br>
+          · 由 XL1509 及 LDO 构成 DCBUS-12V-5V-3.3V 降压电源树<br>
+          · 由 EG2132 栅极驱动器与自举电路构成功率驱动级<br>
+          · 采用 JMTK3005A 构建三相逆变全桥<br>
+          · 基于 GS321A 运放实现单电阻电流采样，并配置 Hall 信号接口和反电动势检测电路</p>
+          <br>
+          <h4>硬件调试与问题排查</h4>
+          <p>· 上电前完成静态电源与电源完整性验证，DCBUS-12V 电源纹波 30.4mV<br>
+          · 初始调试阶段电机无法运行，通过查阅电机技术规格书，定位并修正物理 Hall 线序匹配问题，最终实现平滑调速<br>
+          · 测试中发现 XL1509 供电级温升过高，定位为续流二极管选型不当（普通二极管需替换为肖特基）与 PCB 铺铜不足共同导致</p>
         </div>
       </div>
     </div>
@@ -147,10 +151,14 @@
             <img src="assets/project1/PWM波_宏观的换相沿.jpg" alt="PWM 宏观换相沿">
             <span>宏观换相沿</span>
           </div>
+          <div class="waveform-item">
+            <img src="assets/project1/项目1 24v-12v电源纹波.jpg" alt="项目1 24V 转 12V 电源纹波">
+            <span>24V → 12V 电源纹波</span>
+          </div>
         </div>
         <div class="waveform-video">
           <h5>PWM 随调速旋钮变化 · 占空比调节演示</h5>
-          <video controls><source src="assets/project1/PWM波随调速旋钮变化占空比改变.mp4" type="video/mp4"></video>
+          <video controls><source src="../h264_videos/PWM波随调速旋钮变化占空比改变_h264.mp4" type="video/mp4"></video>
         </div>
       </div>
     `;

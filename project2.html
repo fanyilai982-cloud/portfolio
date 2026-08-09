@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>智能车主板 · 范祎来</title>
+  <title>72V-12V FOC有感/无感无刷电机驱动板 · 范祎来</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,7 +13,8 @@
     <ul class="nav-links">
       <li><a href="index.html">首页</a></li>
       <li><a href="project1.html">无刷电机驱动板</a></li>
-      <li><a href="project2.html" class="active">智能车主板</a></li>
+      <li><a href="project2.html" class="active">24V无刷电机驱动板v2.0 · FOC 驱动板</a></li>
+      <li><a href="project3.html">智能车主板</a></li>
     </ul>
   </nav>
 
@@ -21,44 +22,66 @@
     <a href="index.html" class="back-link">← 返回首页</a>
 
     <div class="detail-header">
-      <h2>智能车主板 · 四层 PCB 设计与调试</h2>
-      <div class="date">2025.03 - 2025.05 · 独立工程落地</div>
+      <h2>72V-12V FOC有感/无感无刷电机驱动板</h2>
+      <div class="date">2026.05 - 2026.07 · 独立工程落地</div>
     </div>
 
     <div class="detail-content">
       <!-- Left: 3D Image -->
       <div class="detail-image">
-        <img src="assets/project2/front.png" alt="智能车主板正面" id="main-image">
+        <img src="assets/project2/front.jpg" alt="STM32G4 FOC 驱动器正面" id="main-image">
         <div class="image-toggle">
-          <button class="active" data-src="assets/project2/front.png">正面</button>
-          <button data-src="assets/project2/back.png">背面</button>
+          <button class="active" data-src="assets/project2/front.jpg">正面</button>
+          <button data-src="assets/project2/back.jpg">背面</button>
         </div>
       </div>
 
       <!-- Right: Info Cards -->
       <div class="detail-info">
-        <div class="info-card" onclick="openModal('pdf', {title: '智能车主板 · 电路原理图', src: 'assets/project2/schematic.pdf'})">
+        <div class="info-card" onclick="openModal('pdf', {title: 'STM32G4 FOC 驱动器 · 电路原理图', src: 'assets/project2/项目3原理图.pdf'})">
           <div class="icon blue">&#x1f4c4;</div>
           <div class="text">
             <h4>电路原理图</h4>
-            <p>含 HCPL0631 光耦隔离、TPS73633 降压模块</p>
+            <p>基于 STM32G4 系列主控，包含 FOC 矢量控制核心、CAN 通信、SPI 屏幕接口及多级降压电源树</p>
           </div>
         </div>
-
-        <div class="project-desc">
-          <h4>项目概述</h4>
-          <p>基于行业开源的智能车主控板原理图架构，独立完成从图纸解析、四层 PCB Layout、PCB 焊接到底层硬件验证的完整工程落地，旨在验证电源管理及隔离驱动电路的可靠性。</p>
-          <br>
-          <h4>技术要点</h4>
-          <p>· 深入解析 HCPL0631 光耦隔离、TPS73633 降压等模块的参考设计<br>
-          · 使用 Altium Designer 20 独立完成四层板的布局布线<br>
-          · 合理规划信号回流路径与电源/地层分割<br>
-          · 独立完成全板高密度贴片及直插元器件的焊接<br>
-          · 通过 STM32F103 输出 PWM 信号验证隔离驱动可靠性</p>
-          <br>
-          <h4>项目成果</h4>
-          <p>成功将开源原理图转化为稳定运行的物理主板，点亮并跑通全部底层硬件测试，展现了扎实的原理图理解力、PCB 规范制图能力以及独立解决硬件故障的排错逻辑。</p>
+        <div class="info-card" onclick="openModal('video', {title: 'STM32G4 FOC 驱动板 · 演示视频', src: 'assets/project2/项目2演示视频_h264.mp4'})">
+          <div class="icon yellow">&#x1f3ac;</div>
+          <div class="text">
+            <h4>演示视频</h4>
+            <p>FOC 驱动板运行与调试演示</p>
+          </div>
         </div>
+        <div class="info-card" onclick="loadProject2Waveforms()">
+          <div class="icon purple">&#x1f4ca;</div>
+          <div class="text">
+            <h4>调试波形</h4>
+            <p>SVPWM、U 相波形及各级电源纹波实测</p>
+          </div>
+        </div>
+        <div class="info-card" onclick="loadProject2Report()">
+          <div class="icon green">&#x1f4cb;</div>
+          <div class="text">
+            <h4>测试报告</h4>
+            <p>冷态阻抗、MOS 管检测、上电电压、烧录与 Hall/FOC 问题排查</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-desc">
+        <h4>项目概述</h4>
+        <p>为落地 FOC 有感/无感控制并支持永磁同步电机，在项目1基础上进行硬件架构升级。独立完成一款最大电流 1A、最大功率 72W 的 FOC 电机驱动板开发，系统支持 72V-12V 宽压输入，独立完成全板元器件选型、四层 PCB Layout 设计、手工焊接打样及软硬件联调的全流程闭环。该板侧重完善的信号采样网络，最终成功实现电机的 FOC 有感/无感控制。</p>
+        <br>
+        <h4>硬件设计升级</h4>
+        <p>· 模拟采样电路：摒弃项目1中的单电阻采样方案，利用运放搭建电压跟随器，为相电流采样提供稳定的 1.65V 偏置基准；设计完整的 A/B/C 三相电流与母线电流采样回路，同时预留三相电压、母线电压及中性点电压采样网络，满足不同 FOC 控制策略的数据需求。</p>
+        <p>· 电源树升级：在 24V 母线输入端增加防过压及缓启动电路；针对前版 24V 转 12V 电路发热严重的问题，选用更低导通内阻和更高转换效率的降压芯片替换原方案，并扩大该电源区块 PCB 铺铜散热面积；采用独立 3.3V LDO 为 ADC 基准供电，降低数字逻辑部分交叉干扰。</p>
+        <p>· 主控算力与外设拓展：主控由 STM32G0 升级为专为电机控制设计的 STM32G4 系列，以满足 FOC 矩阵运算需求；对外接口从单一 Hall 接口拓展为 CAN 总线收发器、1.14 寸 LCD 屏接口、SPI Flash 及温度传感器网络，便于算法参数实时监测与存储。</p>
+        <br>
+        <h4>硬件调试与问题排查</h4>
+        <p>· 上电前完成静态电源与电源完整性验证，DCBUS-12V 电源纹波 28.4mV，12V-5V 电源纹波 38.4mV<br>
+        · 烧录程序阶段，利用二极管档迅速定位并修复 SWDIO 引脚虚焊导致的烧录故障<br>
+        · 针对 MCU 无法识别 Hall 信号的问题，排查出电机实际为开漏输出（与厂商宣称的推挽不符），通过修正外围电阻拓扑使电平恢复至 3.43V<br>
+        · 针对 FOC 闭环调试时电机抖动现象，定位到 1mΩ 采样电阻过小导致电流采样信噪比不足、FOC 算法失效，将其更正为 50mΩ 后电机实现平稳闭环运行</p>
       </div>
     </div>
   </div>
@@ -75,9 +98,88 @@
   </div>
 
   <footer class="footer">
-    范祎来 · 硬件开发工程师（实习）
+    范祎来 · 硬件开发工程师
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    const project2Report = `
+      <div class="competition-detail">
+        <div class="comp-header">
+          <h4>测试报告概述</h4>
+          <p>围绕 FOC 驱动板的冷态安全检查、MOS 管特性确认、上电电源验证、程序烧录异常、Hall 信号识别以及闭环抖动问题进行系统排查，最终完成从硬件基础检查到 FOC 闭环稳定运行的调试闭环。</p>
+        </div>
+
+        <h4 style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:14px;">关键测试数据</h4>
+        <div class="comp-stages">
+          <div class="comp-stage">
+            <div class="stage-num s1">1</div>
+            <div class="stage-body">
+              <h5>冷态阻抗检查</h5>
+              <p>不上电情况下使用万用表 20kΩ 档确认各电源轨无明显短路：GND-VCC 为 11.2kΩ，GND-5V 为 11.4kΩ，GND-12V 测试点超出量程；GND-AVCC 为 17.2kΩ，母线电压测试点超出量程。</p>
+            </div>
+          </div>
+          <div class="comp-stage">
+            <div class="stage-num s2">2</div>
+            <div class="stage-body">
+              <h5>MOS 管冷态测试</h5>
+              <p>红表笔接 S 极、黑表笔接 D 极时体二极管压降约 0.52V，反接约 1.9V；G-D 使用 20kΩ 档测试均超出量程，G-S 阻值处于 15kΩ 至超出量程范围，未发现明显短路异常。</p>
+            </div>
+          </div>
+          <div class="comp-stage">
+            <div class="stage-num s3">3</div>
+            <div class="stage-body">
+              <h5>上电静态电源验证</h5>
+              <p>整机不接电机时静态电流约 30mA；各测试点电压正常：3.3V 为 3.28V，5V 为 4.92V，12V 为 12.13V，AVCC 为 3.3V。</p>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:0.5px;text-transform:uppercase;margin:22px 0 14px;">问题定位与修复</h4>
+        <div class="comp-stages">
+          <div class="comp-stage">
+            <div class="stage-num s1">A</div>
+            <div class="stage-body">
+              <h5>SWD 烧录异常</h5>
+              <p>MCU 烧录时无法识别设备，二极管档测得 SWDIO 引脚约 1.6V，判断为引脚虚焊。重新焊接后，程序可正常烧录。</p>
+            </div>
+          </div>
+          <div class="comp-stage">
+            <div class="stage-num s2">B</div>
+            <div class="stage-body">
+              <h5>BOOT0 复用导致程序不运行</h5>
+              <p>程序虽可烧录但无法正常运行。排查发现 CAN 口与 BOOT0 IO 口复用，且原理图未将 BOOT0 下拉至 GND，后通过 STM32CubeProgrammer 设置软件 BOOT 下拉解决。</p>
+            </div>
+          </div>
+          <div class="comp-stage">
+            <div class="stage-num s3">C</div>
+            <div class="stage-body">
+              <h5>Hall 信号电平异常</h5>
+              <p>Hall 信号仅约 1.15V，MCU 无法识别。经排查，电机实际为开漏输出而非商家宣称的推挽输出；移除下拉电阻并修正外围电阻拓扑后，Hall 信号恢复至 3.43V。</p>
+            </div>
+          </div>
+          <div class="comp-stage">
+            <div class="stage-num s4">D</div>
+            <div class="stage-body">
+              <h5>FOC 闭环抖动</h5>
+              <p>闭环调试阶段电机运行抖动、无法达到闭环速度。定位为 1mΩ 采样电阻过小导致电流采样信噪比不足，引起 FOC 算法失效；更换为 50mΩ 后电机实现平稳闭环运行。</p>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+    function loadProject2Report() {
+      openModal('report', {title: 'FOC 驱动板 · 测试报告与问题排查', content: project2Report});
+    }
+
+    const project2Waveforms = `
+      <div class="waveform-gallery"><div class="waveform-grid">
+        <div class="waveform-item"><img src="assets/project2/项目 2LO1svpwm波形.jpg" alt="FOC SVPWM 波形"><span>SVPWM 波形</span></div>
+        <div class="waveform-item"><img src="assets/project2/项目2U相波形.jpg" alt="FOC U 相波形"><span>U 相波形</span></div>
+        <div class="waveform-item"><img src="assets/project2/项目2 24-12v电源纹波.jpg" alt="24V 转 12V 电源纹波"><span>24V → 12V 电源纹波</span></div>
+        <div class="waveform-item"><img src="assets/project2/项目212-5v 电源纹波 38.4mv.jpg" alt="12V 转 5V 电源纹波"><span>12V → 5V 电源纹波 · 38.4mV</span></div>
+      </div></div>`;
+    function loadProject2Waveforms() { openModal('report', {title: 'FOC 驱动板 · 调试波形与电源纹波', content: project2Waveforms}); }
+  </script>
 </body>
 </html>
